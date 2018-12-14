@@ -12,4 +12,4 @@ jobs:
   plan:
   - get: concourse1
   - task: hello-world
-    file: concourse1/configs/hello.yaml
+    file: concourse1/hello.yml
