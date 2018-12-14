@@ -1,0 +1,15 @@
+---
+resources:
+- name: concourse1
+  type: git
+  source:
+    uri: https://github.com/chrisgreene/concourse1.git
+    branch: master
+
+jobs:
+- name: concourse1
+  public: true
+  plan:
+  - get: concourse1
+  - task: hello-world
+    file: concourse1/configs/hello.yaml
