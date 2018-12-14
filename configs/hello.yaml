@@ -4,5 +4,5 @@ image_resource:
   type: docker-image
   source: {respository: busybox}
 run:
-  path: uname
-  args: [-a]
+  path: echo
+  args: [hello world]
