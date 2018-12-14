@@ -11,5 +11,3 @@ jobs:
   public: true
   plan:
   - get: concourse
-  - task: hello-world
-    file: concourse/configs/hello.yaml
