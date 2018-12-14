@@ -11,5 +11,6 @@ jobs:
   public: true
   plan:
   - get: concourse1
+    trigger: true
   - task: hello-world
     file: concourse1/configs/hello.yaml
