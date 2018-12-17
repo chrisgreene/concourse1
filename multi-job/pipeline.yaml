@@ -9,7 +9,7 @@ jobs:
 - name: push-data
   plan: 
   - get: concourse1
-    trigger: true
+    #trigger: true
   - task: update-file
     config: 
       platform: linux
