@@ -7,7 +7,6 @@ resources:
     branch: master
 jobs:
 - name: push-data
-  serial: true
   plan: 
   - get: concourse1
     trigger: true
@@ -23,6 +22,11 @@ jobs:
       - name: results
       run: 
         path: concourse1/multi-job/update-file.sh
+- name: get-data
+  plan:
+  - get: concourse1
+    passed: [push-data]
+    trigger: true
   - task: get-file
     config: 
       platform: linux
@@ -33,4 +37,4 @@ jobs:
       - name: results
       run: 
         path: cat  
-        args: ['results/appendme']  
+        args: ['results/appendme']
