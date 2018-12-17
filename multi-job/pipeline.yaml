@@ -22,7 +22,7 @@ jobs:
       outputs:
       - name: results
       run: 
-        path: concourse1/update-file.sh
+        path: concourse1/multi-job/update-file.sh
   # - task: get-file
   #   config: 
   #     platform: linux
