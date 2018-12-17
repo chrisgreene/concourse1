@@ -19,8 +19,7 @@ jobs:
       inputs:
       - name: concourse1
       run: 
-        path: ls 
-        args: ['-ltR']
+        path: env
 - name: job2
   plan:
   - get: concourse1
