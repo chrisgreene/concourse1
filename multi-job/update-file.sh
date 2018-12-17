@@ -1,8 +1,9 @@
 #!/bin/sh
 
 #mkdir results
-ls -ltR
+#ls -ltR
 cp concourse1/appendme results
+cat results/appendme
 echo 'one' >> results/appendme
 echo 'two' >> results/appendme
 

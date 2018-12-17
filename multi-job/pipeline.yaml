@@ -32,5 +32,5 @@ jobs:
       inputs:
       - name: results
       run: 
-        path: ls  
-        args: ['-ltR']  
+        path: cat  
+        args: ['results/appendme']  
