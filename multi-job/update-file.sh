@@ -2,7 +2,8 @@
 
 #mkdir results
 ls -ltR
-#echo 'one' >> concourse1/appendme
-#echo 'two' >> concourse1/appendme
+cp concourse1/appendme results
+echo 'one' >> results/appendme
+echo 'two' >> results/appendme
 
 #cat concourse1/appendme
