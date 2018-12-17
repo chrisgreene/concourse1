@@ -6,11 +6,11 @@ resources:
     uri: https://github.com/chrisgreene/concourse1.git
     branch: master
 jobs:
-- name: job1
+- name: push-data
   plan: 
   - get: concourse1
     #trigger: true
-  - task: task1
+  - task: update-file
     config: 
       platform: linux
       image_resource:
@@ -18,18 +18,23 @@ jobs:
         source: { repository: busybox }
       inputs:
       - name: concourse1
+      outputs:
+      - name: results
       run: 
-        path: hostname 
-- name: job2
+        path: concourse1/multi-job/update-file.sh
+- name: get-data
   plan:
   - get: concourse1
-    passed: [job1]
+    passed: [push-data]
     trigger: true
-  - task: task1
+  - task: get-file
     config: 
       platform: linux
       image_resource:
         type: docker-image
         source: { repository: busybox }
+      inputs:
+      - name: results
       run: 
-        path: hostname
+        path: cat  
+        args: ['results/appendme']
