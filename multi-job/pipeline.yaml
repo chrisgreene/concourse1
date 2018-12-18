@@ -24,7 +24,6 @@ jobs:
         path: concourse1/multi-job/update-file.sh
 - name: get-data
   plan:
-  - get: results
   - get: concourse1
     passed: [push-data]
     trigger: true
@@ -34,8 +33,8 @@ jobs:
       image_resource:
         type: docker-image
         source: { repository: busybox }
-      inputs:
-      - name: results
+      #inputs:
+      #- name: results
       run: 
-        path: cat  
-        args: ['results/appendme']
+        path: ls  
+        args: ['-ltR]'
